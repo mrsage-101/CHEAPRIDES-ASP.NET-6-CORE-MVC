@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CHEAPRIDES.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230514213003_Initial")]
+    [Migration("20230517124430_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -31,6 +31,9 @@ namespace CHEAPRIDES.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Carid"));
+
+                    b.Property<bool>("avialability")
+                        .HasColumnType("bit");
 
                     b.Property<string>("cMake")
                         .IsRequired()

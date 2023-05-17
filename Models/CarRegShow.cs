@@ -43,6 +43,9 @@ namespace CHEAPRIDES.Models
         [ForeignKey("type")]
         public char type { get; set; }
 
+        [Display(Name ="Avialable")]
+        public bool avialability { get; set; }
+
         public virtual List<RideBooking>? RideBookings { get; set; }
     }
 }

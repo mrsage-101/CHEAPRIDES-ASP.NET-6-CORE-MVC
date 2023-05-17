@@ -1,0 +1,41 @@
+﻿@*Define Model*@
+
+@model IEnumerable<CarRegShow>
+
+@*Define View Data*@
+
+@{
+    ViewData["Title"] = "Book Ride";
+}
+
+@*Write Code*@
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.cName)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.cName)
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-outline-primary me-2" asp-action="Book" asp-controller = "RideBookings" asp-route-id="@item.Carid">
+                                    <i class="bi bi-pencil-square"></i>Book
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

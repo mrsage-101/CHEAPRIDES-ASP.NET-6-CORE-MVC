@@ -20,5 +20,8 @@ namespace CHEAPRIDES.Data.Services
 
         // Delete method
         Task DeleteAsync(int id);
+
+        // get all cars with avialability == true
+        Task<IEnumerable<CarRegShow>> GetCarsTru();
     }
 }

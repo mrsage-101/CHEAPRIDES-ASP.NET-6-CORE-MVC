@@ -3,7 +3,7 @@ using CHEAPRIDES.Data.Services;
 using CHEAPRIDES.Models;
 using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
-
+using System.Reflection.Metadata.Ecma335;
 
 namespace CHEAPRIDES.Controllers
 {
@@ -48,7 +48,7 @@ namespace CHEAPRIDES.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("cName,cModel,cMake,cRegNum,pId,type")] CarRegShow carRegShow)
+        public async Task<IActionResult> Create([Bind("cName,cModel,cMake,cRegNum,pId,type,avialability")] CarRegShow carRegShow)
         {
             if (!ModelState.IsValid)
             {
@@ -140,6 +140,14 @@ namespace CHEAPRIDES.Controllers
             await _riderRidesService.DeleteAsync(id);
 
             return RedirectToAction(nameof(RiderRides));
+        }
+
+        // This will take to view of Book in View RideBookings - RideBookings\Book.cshtml
+        [HttpGet]
+        public async Task<IActionResult> CustomerRideMain()
+        {
+            var carRecommend = await _riderRidesService.GetCarsTru();
+            return View(carRecommend);
         }
     }
 }

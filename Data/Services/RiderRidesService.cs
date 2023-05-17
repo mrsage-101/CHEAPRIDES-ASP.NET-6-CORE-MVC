@@ -59,6 +59,7 @@ namespace CHEAPRIDES.Data.Services
             existingcarInfo.cModel = updatedcar.cModel;
             existingcarInfo.cMake = updatedcar.cMake;
             existingcarInfo.cRegNum = updatedcar.cRegNum;
+            existingcarInfo.avialability = updatedcar.avialability;
 
             await _dbContext.SaveChangesAsync();
 
@@ -73,6 +74,13 @@ namespace CHEAPRIDES.Data.Services
                 _dbContext.CarRegShows.Remove(result);
                 await _dbContext.SaveChangesAsync();
             }
+        }
+
+        // retrieve all cars where avialability is true
+        public async Task<IEnumerable<CarRegShow>> GetCarsTru()
+        {
+            var result = await _dbContext.CarRegShows.Where(c => c.avialability).ToListAsync();
+            return result;
         }
     }
 }

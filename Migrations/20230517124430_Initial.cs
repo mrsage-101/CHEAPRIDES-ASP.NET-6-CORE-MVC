@@ -39,7 +39,8 @@ namespace CHEAPRIDES.Migrations
                     cMake = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     cRegNum = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     pId = table.Column<int>(type: "int", nullable: false),
-                    type = table.Column<string>(type: "nvarchar(1)", nullable: false)
+                    type = table.Column<string>(type: "nvarchar(1)", nullable: false),
+                    avialability = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

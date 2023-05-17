@@ -29,6 +29,9 @@ namespace CHEAPRIDES.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Carid"));
 
+                    b.Property<bool>("avialability")
+                        .HasColumnType("bit");
+
                     b.Property<string>("cMake")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

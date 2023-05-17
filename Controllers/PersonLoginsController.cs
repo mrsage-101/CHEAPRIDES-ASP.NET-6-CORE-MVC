@@ -30,8 +30,9 @@ namespace CHEAPRIDES.Controllers
 
             if (personLogin != null)
             {
+                if (personLogin.type == 'A')
+                { return RedirectToAction("Index", "PersonInfos"); }
 
-                return RedirectToAction("Index", "PersonInfos");
             }
 
             // Login failed, display an error message or perform other actions

@@ -23,10 +23,9 @@ namespace CHEAPRIDES.Models
         [Required]
         public int Fare { get; set; }
 
-
         public int Carid { get; set; }
 
         [ForeignKey("Carid")]
-        public virtual CarRegShow CarRegShow { get; set; }
+        public virtual CarRegShow? CarRegShow { get; set; }
     }
 }
