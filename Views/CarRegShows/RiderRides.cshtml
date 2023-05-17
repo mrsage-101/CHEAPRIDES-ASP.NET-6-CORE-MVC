@@ -1,0 +1,71 @@
+﻿@*Define Model*@
+
+@model IEnumerable<CarRegShow>
+
+@*Define View Data*@
+
+@{
+    ViewData["Title"] = "List of Persons Regestered";
+}
+
+@*Write Code*@
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.cName)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.cName)
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-outline-primary me-2" asp-action="Edit" asp-route-id="@item.pId">
+                                    <i class="bi bi-pencil-square"></i>Edit
+                                </a>
+                                <a class="btn btn-outline-info me-2 detail-btn" asp-action="Details" asp-route-id="@item.Carid">
+                                    <i class="bi bi-eye"></i>Details
+                                </a>
+                                <a class="btn btn-outline-info delete-btn" asp-action="Delete" asp-route-id="@item.pId">
+                                    <i class="bi bi-trash"></i>Delete
+                                </a>
+
+                                <style>
+                                    .delete-btn {
+                                        color: red;
+                                        border-color: red;
+                                    }
+
+                                        .delete-btn:hover {
+                                            color: white !important;
+                                            background-color: red !important;
+                                            border-color: red !important;
+                                        }
+                                </style>
+
+                                <style>
+
+                                    .detail-btn:hover {
+                                        color: white !important;
+                                    }
+                                </style>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div style="position: fixed; right: 25px; button: 25px;" class="form-group">
+    <a asp-controller="CarRegShows" asp-action="Create" class="btn btn-outline-success">Add Car</a>
+</div>

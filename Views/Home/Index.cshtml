@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="overlay-box">
+    <h2>Welcome to CHEAPRIDES</h2>
+    <p>CLICK BUTTON BASED ON YOUR ACCESS LVL</p>
+    <a class="btn btn-outline-secondary" asp-controller="PersonLogins" asp-action="Index">Admin</a>
+    <a class="btn btn-outline-secondary" asp-controller="RiderLogins" asp-action="Index">Rider</a>
+    <a class="btn btn-outline-secondary" asp-controller="PersonLogins" asp-action="Index">Customer</a>
+</div>
+
+<style>
+    .overlay-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 50px;
+        text-align: center;
+        border: 5px solid black;
+        border-radius: 10px;
+        color: black;
+    }
+
+     .overlay-box button {
+         display: block;
+         margin: 20px auto;
+         padding: 10px 20px;
+         width: 200px;
+         font-size: 18px;
+         border: none;
+         border-radius: 5px;
+         background-color: transparent;
+         color: black;
+         cursor: pointer;
+         border: 2px solid black;
+         transition: background-color 0.3s ease-in-out;
+     }
+
+     .overlay-box button:hover {
+        background-color: #3498db;
+        color: white;
+     }
+</style>
