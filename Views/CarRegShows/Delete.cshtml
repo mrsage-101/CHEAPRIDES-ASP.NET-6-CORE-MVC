@@ -1,0 +1,48 @@
+﻿@model CarRegShow
+
+@{
+    ViewData["Title"] = "Delete-Car";
+}
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h4 style="margin-left: 250px;">Delete Confirmation @Model.cModel</h4>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <div class="form-group">
+                    <label asp-for="Carid" class="control-label"></label>
+                    <input asp-for="Carid" class="form-control" readonly />
+                    <span asp-validation-for="Carid" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="cName" class="control-label"></label>
+                    <input asp-for="cName" class="form-control" readonly />
+                    <span asp-validation-for="cName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="cModel" class="control-label"></label>
+                    <input asp-for="cModel" class="form-control" readonly />
+                    <span asp-validation-for="cModel" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="cMake" class="control-label"></label>
+                    <input asp-for="cMake" class="form-control" readonly />
+                    <span asp-validation-for="cMake" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="cRegNum" class="control-label"></label>
+                    <input asp-for="cRegNum" class="form-control" readonly />
+                    <span asp-validation-for="cRegNum" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Carid" />
+                        <input type="submit" value="Confirm" class="btn btn-danger float-right" style=" margin-left: 50px;" />
+                    </form>
+                    <a class="btn btn-outline-secondary" asp-action="Index" style="margin-left: 250px;">BACK</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

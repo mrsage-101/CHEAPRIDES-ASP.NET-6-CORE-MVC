@@ -10,13 +10,16 @@ namespace CHEAPRIDES.Controllers
     public class CarRegShowsController : Controller
     {
         private readonly RiderRidesInterface _riderRidesService;
-        private static int _counter;
-        int temp;
+        private static int _counter; private static int _counter2;
+        int temp; private static int i;
         public CarRegShowsController(RiderRidesInterface riderRidesService)
         {
             _riderRidesService = riderRidesService;
+            i++;
 
             _counter++;
+            if (i >= 1)
+            { _counter2++; }
         }
 
         // get all cars registered by the user who logged in, filtered based on id
@@ -86,6 +89,57 @@ namespace CHEAPRIDES.Controllers
             {
                 return View(carDetails);
             }
+        }
+
+        // ...
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var carDetails = await _riderRidesService.GetByIdAsync(id);
+            if (carDetails == null)
+            {
+                return View("Empty");
+            }
+            return View(carDetails);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, [Bind("cName,cModel,cMake,cRegNum")] CarRegShow carRegShow)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(carRegShow);
+            }
+
+            await _riderRidesService.UpdateAsync(id, carRegShow);
+
+            return RedirectToAction(nameof(RiderRides));
+        }
+
+        // Delete
+        public async Task<IActionResult> Delete(int id)
+        {
+            var carDetails = await _riderRidesService.GetByIdAsync(id);
+            if (carDetails == null)
+            {
+                return View("Empty");
+            }
+            return View(carDetails);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var carDetails = await _riderRidesService.GetByIdAsync(id);
+            if (carDetails == null)
+            {
+                return View("Empty");
+            }
+
+            await _riderRidesService.DeleteAsync(id);
+
+            return RedirectToAction(nameof(RiderRides));
         }
     }
 }

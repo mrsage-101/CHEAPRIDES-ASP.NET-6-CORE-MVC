@@ -43,5 +43,36 @@ namespace CHEAPRIDES.Data.Services
                                 .ToListAsync();
             return result;
         }
+
+        public async Task<CarRegShow> UpdateAsync(int id, CarRegShow updatedcar)
+        {
+            var existingcarInfo = await _dbContext.CarRegShows.FindAsync(id);
+
+            if (existingcarInfo == null)
+            {
+                // Handle the case when the PersonInfo with the specified ID is not found
+                throw new Exception("PersonInfo not found");
+            }
+
+
+            existingcarInfo.cName = updatedcar.cName;
+            existingcarInfo.cModel = updatedcar.cModel;
+            existingcarInfo.cMake = updatedcar.cMake;
+            existingcarInfo.cRegNum = updatedcar.cRegNum;
+
+            await _dbContext.SaveChangesAsync();
+
+            return existingcarInfo;
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var result = await _dbContext.CarRegShows.FirstOrDefaultAsync(n => n.Carid == id);
+            if (result != null)
+            {
+                _dbContext.CarRegShows.Remove(result);
+                await _dbContext.SaveChangesAsync();
+            }
+        }
     }
 }

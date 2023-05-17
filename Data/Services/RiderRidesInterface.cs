@@ -14,5 +14,11 @@ namespace CHEAPRIDES.Data.Services
 
         // get all personinfos
         Task<IEnumerable<CarRegShow>> GetAll(int id);
+
+        // functionality to update
+        public Task<CarRegShow> UpdateAsync(int id, CarRegShow updatedcar);
+
+        // Delete method
+        Task DeleteAsync(int id);
     }
 }
