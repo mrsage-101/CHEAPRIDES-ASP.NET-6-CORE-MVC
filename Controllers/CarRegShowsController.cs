@@ -104,8 +104,9 @@ namespace CHEAPRIDES.Controllers
             return View(carDetails);
         }
 
+
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("cName,cModel,cMake,cRegNum")] CarRegShow carRegShow)
+        public async Task<IActionResult> Edit(int id, [Bind("cName,cModel,cMake,cRegNum,avialability")] CarRegShow carRegShow)
         {
             if (!ModelState.IsValid)
             {
