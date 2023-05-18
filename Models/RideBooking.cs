@@ -20,8 +20,10 @@ namespace CHEAPRIDES.Models
         [Required]
         public string Droplocation { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Fare is required")]
+        [RegularExpression("^[0-9]+$", ErrorMessage = "Fare must be a numeric value")]
         public int Fare { get; set; }
+
 
         public int Carid { get; set; }
 

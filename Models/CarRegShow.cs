@@ -18,20 +18,26 @@ namespace CHEAPRIDES.Models
         public int Carid { get; set; }
 
         [Display(Name = "CarName")]
-        [Required]
+        [Required(ErrorMessage = "Car Name is required")]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Car Name must contain alphabetic characters only")]
         public string cName { get; set; }
 
+
         [Display(Name = "CarModel")]
-        [Required]
+        [Required(ErrorMessage = "Car Model is required")]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Car Name must contain alphabetic characters only")]
         public string cModel { get; set; }
 
         [Display(Name = "CarMake")]
-        [Required]
+        [Required(ErrorMessage = "Car Make is required")]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Car Name must contain alphabetic characters only")]
         public string cMake { get; set; }
 
         [Display(Name = "CarRegistrationNumber")]
-        [Required]
+        [Required(ErrorMessage = "Car Registration Number is required")]
+        [RegularExpression("^[A-Z0-9-]+$", ErrorMessage = "Car Registration Number must contain uppercase letters, hyphens, and numbers only")]
         public string cRegNum { get; set; }
+
 
         [Display(Name = "PersonId")]
         public int pId { get; set; }

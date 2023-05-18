@@ -6,5 +6,8 @@ namespace CHEAPRIDES.Data.Services
     {
         // check person is in database or not
         Task<PersonLogin?> GetByCredentialsAsync(string username, string password);
+
+        // add data to database
+        Task AddAsync(PersonInfo personInfo);
     }
 }

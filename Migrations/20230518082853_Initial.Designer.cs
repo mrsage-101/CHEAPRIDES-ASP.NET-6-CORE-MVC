@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CHEAPRIDES.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230517124430_Initial")]
+    [Migration("20230518082853_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -87,11 +87,13 @@ namespace CHEAPRIDES.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("type")
                         .IsRequired()

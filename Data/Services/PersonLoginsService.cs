@@ -16,5 +16,11 @@ namespace CHEAPRIDES.Data.Services
             var result = await _context.PersonLogin.FirstOrDefaultAsync(n => n.Username == username && n.Password == password);
             return result;
         }
+
+        public async Task AddAsync(PersonInfo personInfo)
+        {
+            await _context.Persons.AddAsync(personInfo);
+            await _context.SaveChangesAsync();
+        }
     }
 }

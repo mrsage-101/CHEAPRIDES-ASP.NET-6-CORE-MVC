@@ -18,8 +18,10 @@ namespace CHEAPRIDES.Controllers
             i++;
 
             _counter++;
+
+            /*_counter++;
             if (i >= 1)
-            { _counter2++; }
+            { _counter2++; }*/
         }
 
         // get all cars registered by the user who logged in, filtered based on id
