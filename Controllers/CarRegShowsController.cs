@@ -106,10 +106,13 @@ namespace CHEAPRIDES.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("cName,cModel,cMake,cRegNum,avialability")] CarRegShow carRegShow)
+        public async Task<IActionResult> Edit(int id, [Bind("cName,cModel,cMake,cRegNum,type,avialability")] CarRegShow carRegShow)
         {
             if (!ModelState.IsValid)
             {
+                var errors = ModelState.Values.SelectMany(v => v.Errors)
+                                      .Select(e => e.ErrorMessage)
+                                      .ToList();
                 return View(carRegShow);
             }
 
@@ -117,6 +120,7 @@ namespace CHEAPRIDES.Controllers
 
             return RedirectToAction(nameof(RiderRides));
         }
+
 
         // Delete
         public async Task<IActionResult> Delete(int id)
