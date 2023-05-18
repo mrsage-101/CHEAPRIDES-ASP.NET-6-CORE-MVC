@@ -53,7 +53,7 @@ namespace CHEAPRIDES.Migrations
 
                     b.Property<string>("type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Carid");
 
@@ -94,7 +94,7 @@ namespace CHEAPRIDES.Migrations
 
                     b.Property<string>("type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("pId");
 
@@ -116,7 +116,7 @@ namespace CHEAPRIDES.Migrations
 
                     b.Property<string>("type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("pId");
 

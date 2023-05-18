@@ -25,7 +25,7 @@ namespace CHEAPRIDES.Controllers
 
             if (personLogin != null)
             {
-                if (personLogin.type == 'C')
+                if (personLogin.type == "C")
                 {
                     return RedirectToAction("CustomerRideMain", "CarRegShows");
                 }
@@ -53,8 +53,10 @@ namespace CHEAPRIDES.Controllers
 
             var personLogin = MapPersonInfoToPersonLogin(personInfo);
 
+
             // Set the PersonLogins property of the personInfo object
             personInfo.PersonLogins = personLogin;
+
 
             await _service.AddAsync(personInfo);
             return RedirectToAction(nameof(Index));

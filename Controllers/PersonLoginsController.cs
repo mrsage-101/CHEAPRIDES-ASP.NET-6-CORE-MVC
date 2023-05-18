@@ -30,7 +30,7 @@ namespace CHEAPRIDES.Controllers
 
             if (personLogin != null)
             {
-                if (personLogin.type == 'A')
+                if (personLogin.type == "A")
                 { return RedirectToAction("Index", "PersonInfos"); }
 
             }

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CHEAPRIDES.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230518082853_Initial")]
+    [Migration("20230518100424_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -56,7 +56,7 @@ namespace CHEAPRIDES.Migrations
 
                     b.Property<string>("type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Carid");
 
@@ -97,7 +97,7 @@ namespace CHEAPRIDES.Migrations
 
                     b.Property<string>("type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("pId");
 
@@ -119,7 +119,7 @@ namespace CHEAPRIDES.Migrations
 
                     b.Property<string>("type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("pId");
 

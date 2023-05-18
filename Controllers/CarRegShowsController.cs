@@ -58,9 +58,7 @@ namespace CHEAPRIDES.Controllers
                 var pid = HttpContext.Session.GetInt32("pId");
                 if (pid.HasValue)
                 {
-                    var carRegistrations = _riderRidesService.GetCarRegistrationsByUserId(pid.Value);
-                    var carRegistrationList = carRegistrations.ToList();
-                    return View(carRegistrationList);
+                    return View(carRegShow);
                 }
                 else
                 {

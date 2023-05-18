@@ -21,7 +21,7 @@ namespace CHEAPRIDES.Migrations
                     Password = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Contact = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    type = table.Column<string>(type: "nvarchar(1)", nullable: false)
+                    type = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -39,7 +39,7 @@ namespace CHEAPRIDES.Migrations
                     cMake = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     cRegNum = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     pId = table.Column<int>(type: "int", nullable: false),
-                    type = table.Column<string>(type: "nvarchar(1)", nullable: false),
+                    type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     avialability = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -60,7 +60,7 @@ namespace CHEAPRIDES.Migrations
                     pId = table.Column<int>(type: "int", nullable: false),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    type = table.Column<string>(type: "nvarchar(1)", nullable: false)
+                    type = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

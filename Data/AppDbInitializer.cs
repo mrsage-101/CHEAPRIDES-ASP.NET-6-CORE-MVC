@@ -43,7 +43,7 @@ namespace CHEAPRIDES.Data
                         Password = "asus204b",
                         Address = "WAPDA CITY 204-B B-BLOCK",
                         Contact = "3019666199",
-                        type = 'C'
+                        type = "C"
                     };
                     context.Persons.Add(personInfo);
                     context.SaveChanges();

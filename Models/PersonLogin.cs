@@ -14,7 +14,7 @@ namespace CHEAPRIDES.Models
         public string Password { get; set; }
 
         [ForeignKey("type")]
-        public char type { get; set; }
+        public string type { get; set; }
 
 
         [Key]

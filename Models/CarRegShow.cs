@@ -30,8 +30,9 @@ namespace CHEAPRIDES.Models
 
         [Display(Name = "CarMake")]
         [Required(ErrorMessage = "Car Make is required")]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Car Name must contain alphabetic characters only")]
+        [RegularExpression("^[0-9]+$", ErrorMessage = "Car Make must contain numeric characters only")]
         public string cMake { get; set; }
+
 
         [Display(Name = "CarRegistrationNumber")]
         [Required(ErrorMessage = "Car Registration Number is required")]
@@ -47,7 +48,7 @@ namespace CHEAPRIDES.Models
 
         [Display(Name = "Type")]
         [ForeignKey("type")]
-        public char type { get; set; }
+        public string type { get; set; }
 
         [Display(Name ="Avialable")]
         public bool avialability { get; set; }

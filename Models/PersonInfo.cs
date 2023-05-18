@@ -46,7 +46,7 @@ namespace CHEAPRIDES.Models
         [Display(Name = "Type")]
         [Required(ErrorMessage = "Type is required")]
         [RegularExpression("^[ARC]$", ErrorMessage = "Type must be either A, R, or C")]
-        public char type { get; set; }
+        public string type { get; set; }
 
 
         public virtual PersonLogin? PersonLogins { get; set; }
