@@ -3,6 +3,7 @@ using CHEAPRIDES.Models;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using CHEAPRIDES.Data;
 using Microsoft.EntityFrameworkCore;
+using CHEAPRIDES.Data.Services;
 
 namespace CHEAPRIDES.Controllers
 {
@@ -15,21 +16,13 @@ namespace CHEAPRIDES.Controllers
             _context = context;
         }
 
-        // async will run in the background, allowing the application to continue processing other requests
-        // await is used to wait for the database query to complete and retrieve the data before returning it as a list to the view
-        /*public async Task<IActionResult> Index()
-        {
-            var ridebook = await _context.RideBookings.ToListAsync();
-            return View(ridebook);
-        }*/
-
         [HttpGet]
         public IActionResult Book(int id)
         {
             return View();
         }
         [HttpPost, ActionName("Book")]
-        public async Task<IActionResult> BookConfirmed(int id, [Bind("Pickuplocation, Droplocation, Fare")] RideBooking rideBooking)
+        public async Task<IActionResult> BookConfirmed(int id, [Bind("Pickuplocation, Droplocation, Fare, Name")] RideBooking rideBooking)
         {
             if (ModelState.IsValid)
             {
@@ -49,13 +42,39 @@ namespace CHEAPRIDES.Controllers
 
                 // Add the booking details to the ridebooking table
                 rideBooking.Carid = car.Carid;
+
                 _context.RideBookings.Add(rideBooking);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("CustomerRideMain", "CarRegShows"); // Redirect to the home page or a confirmation page
             }
-
+            var errors = ModelState.Values.SelectMany(v => v.Errors)
+                                      .Select(e => e.ErrorMessage)
+                                      .ToList();
             return View(rideBooking);
+        }
+
+        // get details
+        public async Task<IActionResult> Details(int id)
+        {
+
+            var bookDetails = await GetByIdAsync(id);
+            //var carDetaillist = carDetails.ToList();
+            if (bookDetails == null)
+            {
+                return View("Empty");
+            }
+            else
+            {
+                return View(bookDetails);
+            }
+        }
+
+        public async Task<RideBooking?> GetByIdAsync(int id)
+        {
+            var result = await _context.RideBookings
+                            .FirstOrDefaultAsync(cr => cr.Bookingid == id);
+            return result;
         }
     }
 }

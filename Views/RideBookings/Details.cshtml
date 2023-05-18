@@ -1,0 +1,50 @@
+﻿@model RideBooking
+
+@{
+    ViewData["Title"] = "View Details";
+}
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h4 style="margin-left: 250px;">Details for @Model.Name</h4>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <div class="form-group">
+                    <label asp-for="Bookingid" class="control-label"></label>
+                    <input asp-for="Bookingid" class="form-control" readonly />
+                    <span asp-validation-for="Bookingid" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Pickuplocation" class="control-label"></label>
+                    <input asp-for="Pickuplocation" class="form-control" readonly />
+                    <span asp-validation-for="Pickuplocation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Droplocation" class="control-label"></label>
+                    <input asp-for="Droplocation" class="form-control" readonly />
+                    <span asp-validation-for="Droplocation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Fare" class="control-label"></label>
+                    <input asp-for="Fare" class="form-control" readonly />
+                    <span asp-validation-for="Fare" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" readonly />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Carid" class="control-label"></label>
+                    <input asp-for="Carid" class="form-control" readonly />
+                    <span asp-validation-for="Carid" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" style="margin-top: 20px;">
+                    <a class="btn btn-outline-secondary" asp-action="History" asp-controller="CarRegShows" style="margin-left: 250px;">BACK</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

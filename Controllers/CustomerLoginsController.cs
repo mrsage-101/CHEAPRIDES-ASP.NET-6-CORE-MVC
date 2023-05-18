@@ -30,7 +30,7 @@ namespace CHEAPRIDES.Controllers
                     return RedirectToAction("CustomerRideMain", "CarRegShows");
                 }
             }
-           
+
 
             // Login failed, display an error message or perform other actions
             ViewBag.ErrorMessage = "Invalid username or password.";
@@ -71,5 +71,8 @@ namespace CHEAPRIDES.Controllers
                 type = personInfo.type
             };
         }
+
+
+
     }
 }

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CHEAPRIDES.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230518100424_Initial")]
+    [Migration("20230518141256_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -143,6 +143,10 @@ namespace CHEAPRIDES.Migrations
 
                     b.Property<int>("Fare")
                         .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Pickuplocation")
                         .IsRequired()

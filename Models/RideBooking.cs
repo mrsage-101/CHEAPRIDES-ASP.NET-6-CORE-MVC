@@ -24,6 +24,8 @@ namespace CHEAPRIDES.Models
         [RegularExpression("^[0-9]+$", ErrorMessage = "Fare must be a numeric value")]
         public int Fare { get; set; }
 
+        
+        public string Name { get; set; }
 
         public int Carid { get; set; }
 

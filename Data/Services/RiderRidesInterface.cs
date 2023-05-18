@@ -6,11 +6,15 @@ namespace CHEAPRIDES.Data.Services
     {
         IEnumerable<CarRegShow> GetCarRegistrationsByUserId(int userId);
 
+        IEnumerable<RideBooking> GetBookingByUserId(int carId);
+
         // add data to database
         Task AddAsync(CarRegShow carRegShow);
 
         // identify whether the carid is there or not
         Task<CarRegShow?> GetByIdAsync(int id);
+
+        Task<CarRegShow?> GetByIdDELAsync(int id);
 
         // get all personinfos
         Task<IEnumerable<CarRegShow>> GetAll(int id);

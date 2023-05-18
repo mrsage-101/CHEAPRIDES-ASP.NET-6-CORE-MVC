@@ -22,6 +22,12 @@ namespace CHEAPRIDES.Data.Services
                                    .ToList();
         }
 
+        public IEnumerable<RideBooking> GetBookingByUserId(int carId)
+        {
+            // Retrieve the bookings
+            return _dbContext.RideBookings.Where(rb => rb.Carid == carId);
+        }
+
         public async Task AddAsync(CarRegShow carRegShow)
         {
             await _dbContext.CarRegShows.AddAsync(carRegShow);
@@ -35,6 +41,12 @@ namespace CHEAPRIDES.Data.Services
             return result;
         }
 
+        public async Task<CarRegShow?> GetByIdDELAsync(int id)
+        {
+            var result = await _dbContext.CarRegShows
+                            .FirstOrDefaultAsync(cr => cr.Carid == id && cr.avialability == true);
+            return result;
+        }
 
         public async Task<IEnumerable<CarRegShow>> GetAll(int id)
         {

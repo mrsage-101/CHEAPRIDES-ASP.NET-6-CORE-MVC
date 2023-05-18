@@ -1,49 +1,54 @@
 ﻿@model PersonInfo
 
 @{
-    ViewData["Title"] = "View Details";
+    ViewData["Title"] = "Update PersonInfo";
 }
 <div class="row">
     <div class="col-md-8 offset-2">
         <p>
-            <h4 style="margin-left: 250px;">Details for @Model.Name</h4>
+            <h4 style="margin-left: 350px;">Update Details</h4>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
+                <form asp-action="Details">
+                    <div asp-validation-summary="ModelOnly" class="text-danger">
+                    </div>
                     <div class="form-group">
                         <label asp-for="Name" class="control-label"></label>
-                        <input asp-for="Name" class="form-control" readonly/>
+                        <input asp-for="Name" class="form-control" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Username" class="control-label"></label>
-                        <input asp-for="Username" class="form-control" readonly/>
+                        <input asp-for="Username" class="form-control" />
                         <span asp-validation-for="Username" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Password" class="control-label"></label>
-                        <input asp-for="Password" class="form-control" readonly/>
+                        <input asp-for="Password" class="form-control" />
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Address" class="control-label"></label>
-                        <input asp-for="Address" class="form-control" readonly/>
+                        <input asp-for="Address" class="form-control" />
                         <span asp-validation-for="Address" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Contact" class="control-label"></label>
-                        <input asp-for="Contact" class="form-control" readonly/>
+                        <input asp-for="Contact" class="form-control" />
                         <span asp-validation-for="Contact" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="type" class="control-label"></label>
-                        <input asp-for="type" class="form-control" readonly/>
+                        <input asp-for="type" class="form-control" />
                         <span asp-validation-for="type" class="text-danger"></span>
                     </div>
-
+                    
                     <div class="form-group" style="margin-top: 20px;">
-                         <a class="btn btn-outline-secondary" asp-action="Index" style="margin-left: 250px;">BACK</a>
+                        <input type="submit" value="Update" class="btn btn-outline-success float-right" style=" margin-left: 50px;" />
+                        <a class="btn btn-outline-secondary" asp-action="Index" style="margin-left: 300px;">Show All</a>
                     </div>
+                </form>
             </div>
         </div>
     </div>

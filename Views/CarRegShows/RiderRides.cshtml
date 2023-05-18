@@ -15,7 +15,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>@Html.DisplayNameFor(model => model.cName)</th>
+                    <th>@Html.DisplayNameFor(model => model.cModel)</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -37,7 +37,9 @@
                                 <a class="btn btn-outline-info delete-btn" asp-action="Delete" asp-route-id="@item.Carid">
                                     <i class="bi bi-trash"></i>Delete
                                 </a>
-
+                                <a class="btn btn-outline-info delete-btn" asp-action="History" asp-route-id="@item.Carid">
+                                    <i class="bi bi-trash"></i>History
+                                </a>
                                 <style>
                                     .delete-btn {
                                         color: red;
@@ -69,3 +71,4 @@
 <div style="position: fixed; right: 25px; button: 25px;" class="form-group">
     <a asp-controller="CarRegShows" asp-action="Create" class="btn btn-outline-success">Add Car</a>
 </div>
+

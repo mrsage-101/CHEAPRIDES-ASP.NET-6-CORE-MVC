@@ -141,6 +141,10 @@ namespace CHEAPRIDES.Migrations
                     b.Property<int>("Fare")
                         .HasColumnType("int");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Pickuplocation")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

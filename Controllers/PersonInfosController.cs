@@ -58,11 +58,24 @@ namespace CHEAPRIDES.Controllers
             {
                 return View("Empty");
             }
-            else
-            {
-                return View(personDetails);
-            }
+            return View(personDetails);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Details(int id, [Bind("pId,Name,Username,Password,Address,Contact,type")] PersonInfo personInfo)
+        {
+            if (!ModelState.IsValid)
+            {
+                // Return the view with the invalid model state
+                return View(personInfo);
+            }
+
+            // Update the PersonInfo and associated PersonLogin
+            await _service.UpdateAsync(id, personInfo);
+
+            return RedirectToAction(nameof(Index));
+        }
+
 
         private PersonLogin MapPersonInfoToPersonLogin(PersonInfo personInfo)
         {
@@ -76,18 +89,30 @@ namespace CHEAPRIDES.Controllers
 
 
         // Edit 
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(string id)
         {
-            var personDetails = await _service.GetByIdAsync(id);
+            /*var personDetails = await _service.GetByIdAsync(id);
             if (personDetails == null)
             {
                 return View("Empty");
             }
-            return View(personDetails);
+            return View(personDetails);*/
+
+            var values = id.Split('-');
+            var PId = values[0];
+            var Type = values[1];
+
+            if (Type == "C")
+            {
+                return RedirectToAction("CustomerRideMain", "CarRegShow", new { PId, Type });
+            }
+            
+             return RedirectToAction("RiderRides", "CarRegShows", new { PId, Type });
+
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("pId,Name,Username,Password,Address,Contact,type")] PersonInfo personInfo)
+        /*[HttpPost]
+        public async Task<IActionResult> Edit(int id, char )
         {
             if (!ModelState.IsValid)
             {
@@ -99,7 +124,7 @@ namespace CHEAPRIDES.Controllers
             await _service.UpdateAsync(id, personInfo);
 
             return RedirectToAction(nameof(Index));
-        }
+        }*/
 
 
         //Delete

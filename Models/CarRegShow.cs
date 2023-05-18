@@ -54,5 +54,6 @@ namespace CHEAPRIDES.Models
         public bool avialability { get; set; }
 
         public virtual List<RideBooking>? RideBookings { get; set; }
+
     }
 }
